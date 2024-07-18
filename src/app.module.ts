@@ -5,16 +5,16 @@ import { FibonacciModule } from './fibonacci/fibonacci.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { EnvConfiguration } from './config/app.config';
+import { joiValidationSchema } from './config/joi.validation';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [EnvConfiguration],
+      validationSchema: joiValidationSchema,
     }),
     FibonacciModule,
-    MongooseModule.forRoot(
-      'mongodb://kiwanas_admin:MoiCvj48CJ28ow@85.209.95.164:27017/kiwanas',
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
   ],
   controllers: [AppController],
   providers: [AppService],
