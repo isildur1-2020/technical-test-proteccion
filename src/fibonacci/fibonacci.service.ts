@@ -25,8 +25,7 @@ export class FibonacciService {
       time: getMomentFormatted({ format: 'HH:mm:ss' }),
       serie: JSON.stringify(serie),
     });
-    await newSerie.save();
-    return 'Fibonacci serie created successfully!';
+    return await newSerie.save();
   }
 
   async findAll() {
