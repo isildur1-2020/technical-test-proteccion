@@ -12,7 +12,9 @@ import { EnvConfiguration } from './config/app.config';
       load: [EnvConfiguration],
     }),
     FibonacciModule,
-    MongooseModule.forRoot(process.env.MONGODB_URI),
+    MongooseModule.forRoot(
+      'mongodb://kiwanas_admin:MoiCvj48CJ28ow@85.209.95.164:27017/kiwanas',
+    ),
   ],
   controllers: [AppController],
   providers: [AppService],
