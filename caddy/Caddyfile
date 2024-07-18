@@ -1,0 +1,11 @@
+{
+    email mail@blue-hippo.org
+}
+
+http://{$DOMAIN_NAME} {
+    redir https://{host}{uri}
+}
+
+https://{$DOMAIN_NAME} {
+    reverse_proxy app:{$PORT}
+}
