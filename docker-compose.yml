@@ -13,7 +13,7 @@ services:
     expose:
       - ${PORT}
     environment:
-      - MONGO_URI=${MONGO_URI}
+      - MONGODB_URI=${MONGODB_URI}
 
   caddy:
     restart: unless-stopped
